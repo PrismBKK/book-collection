@@ -85,7 +85,7 @@ bookRouter.delete("/:BookId",async (req,res)=>{
     });
 })
 
-bookRouter.post("/collection/:username",async (req,res)=>{
+bookRouter.get("/collection/:username",async (req,res)=>{
     const {username}=req.params;
     try{
         const bookcollection=await ConnectionPool.query(
@@ -104,8 +104,8 @@ bookRouter.post("/collection/:username",async (req,res)=>{
         return res.json({"collection":books})
     }
     catch{
-        res.status(500).json({messeage:"Server could not search book because database not connection"});
-        res.status(400).json({messeage:"Server could not search book there are missing data from client"});
+        res.status(500).json({messeage:"Server could not call book collection  because database not connection"});
+        res.status(400).json({messeage:"Server could not call book collection there are missing data from client"});
     }
     
 })
@@ -135,8 +135,8 @@ bookRouter.post("/add_collection/:username",async (req,res)=>{
       );
     }
     catch{
-        res.status(500).json({messeage:"Server could not search book because database not connection"});
-        res.status(400).json({messeage:"Server could not search book there are missing data from client"});
+        res.status(500).json({messeage:"Server could not add book to collection because database not connection"});
+        res.status(400).json({messeage:"Server could not add book to collection there are missing data from client"});
     }
 
     return res.json({

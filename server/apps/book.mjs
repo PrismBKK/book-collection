@@ -4,7 +4,7 @@ import { protect } from "../middlewares/protect.mjs";
 
 const bookRouter=Router();
 
-//bookRouter.use(protect)
+bookRouter.use(protect)
 
 bookRouter.post("/create",async (req,res)=>{
     const create_book={

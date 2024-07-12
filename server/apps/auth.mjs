@@ -12,7 +12,7 @@ authRouter.post("/register",async(req,res)=>{
         updated_at: new Date(),
         last_logged_in:new Date(),
     };
-
+    console.log(user)
     const salt=await bcrypt.genSalt(10);
     user.password=await bcrypt.hash(user.password,salt)
     
@@ -23,8 +23,8 @@ authRouter.post("/register",async(req,res)=>{
           `insert into users (firstname,lastname,username,email,password,created_at,updated_at,last_logged_in)
           values ($1,$2,$3,$4,$5,$6,$7,$8)`,
           [
-              user.firstname,
-              user.lastname,
+              user.firstName,
+              user.lastName,
               user.username,
               user.email,
               user.password,

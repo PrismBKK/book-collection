@@ -24,7 +24,7 @@ function LoginPage(){
     return(
         <div >
             <section>
-                <h1>Login Form</h1>
+                <h1 className="text-blue-600">Login Form</h1>
                 <button onClick={register}>Resigister</button>
             </section>
             
